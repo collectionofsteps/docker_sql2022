@@ -1,9 +1,10 @@
-# Installation of docker on windows 10 for sql 2022
+# Installation of docker on windows 10 for sql 2022 along with (WSL)
 ## Prerequsites
+- ### __[install windows subsystem for linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install)__
+- ### `install docker desktop logged in as Administrator`
+- ### `Create Folders and clone project`
 ```
-    install windows subsystem for linux
-    install docker desktop logged in as Administrator
-    run the following commands
+    run the following commands via cmd
     c:
     cd\
     mkdir docker
@@ -12,12 +13,9 @@
     mkdir docker\volumes_local\sqlbackup
     cd docker\project_sql2022
     git clone https://github.com/collectionofsteps/docker_sql2022
-```
+``` 
 ---
-
----
-## Windows subsystem for Linux 
----
+## Windows subsystem for Linux (WSL) commands
 ```
     cmd run as Administrator
     wsl --list
@@ -26,14 +24,13 @@
     wsl --shutdown
 ```
 ---
-## Start / Stop Docker Service
----
+## Start / Stop Docker Windows Service via comand line using cmd
 ```
     net start com.docker.service
     net stop com.docker.service
 ```
 ---
-## Docker Commands
+## Docker Commands via comand line using cmd
 ---
 ### Start / Stop docker image from folder
 ```
@@ -73,6 +70,6 @@
 ---
 ## References:
 
-- __[GitHub](https://github.com/dbafromthecold/SqlServerDockerCompose)__ - SqlServerDockerCompose
+- __[GitHub](https://github.com/dbafromthecold/SqlServerDockerCompose)__ `SqlServerDockerCompose`
 - __[MS install SQL on Ubuntu](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-linux-ver16&preserve-view=true)__
----
+- __[install windows subsystem for linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install)__
