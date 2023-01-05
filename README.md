@@ -1,4 +1,4 @@
-# Installation of docker on windows 10 for sql 2022 along with (WSL)
+# Installation of docker on windows 10 for sql 2022
 ## Prerequsites
 - ### __[install windows subsystem for linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install)__
 - ### `install docker desktop logged in as Administrator`
