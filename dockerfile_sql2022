@@ -8,8 +8,9 @@ RUN apt-get install -y sudo
 RUN apt-get install -y vim
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # create the mssql user
-RUN useradd -u 10001 mssql
-#RUN useradd mssql sudo
+RUN groupadd mssql
+RUN useradd -u 10002 mssql -g mssql
+RUN usermod -aG sudo mssql
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # creating directories
 RUN mkdir /var/opt/sqlserver
@@ -19,7 +20,6 @@ RUN mkdir /var/opt/sqlserver/backup
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # set permissions on directories
 RUN chown -R mssql:mssql /var/opt/sqlserver
-RUN chown -R mssql:mssql /var/opt/mssql
 # ------------------------------------------------------------------------------------------------------------------------------------------
 # installing SQL Server
 RUN apt-get update
@@ -28,6 +28,8 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN add-apt-repository "$(wget -qO- https://packages.microsoft.com/config/ubuntu/20.04/mssql-server-2022.list)"
 RUN apt-get update 
 RUN apt-get install -y mssql-server
+
+RUN chown -R mssql:mssql /opt/mssql
 
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc

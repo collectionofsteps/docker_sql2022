@@ -8,10 +8,10 @@
     c:
     cd\
     mkdir docker
-    mkdir docker\project_sql2022
+    mkdir docker\docker_sql2022
     mkdir docker\volumes_local
     mkdir docker\volumes_local\sqlbackup
-    cd docker\project_sql2022
+    cd docker
     git clone https://github.com/collectionofsteps/docker_sql2022
 ``` 
 ---
@@ -26,8 +26,10 @@
 ---
 ## Start / Stop Docker Windows Service via comand line using cmd
 ```
+    Note: Set windows service [Docker Destop Service] startup to Manual from Automatic
     net start com.docker.service
     net stop com.docker.service
+    # Note : Start Docker Desktop as Administrator
 ```
 ---
 ## Docker Commands via comand line using cmd
@@ -39,8 +41,9 @@
 ```
 ### Update docker image from docker-compose.yml 
 ```
-    docker-compose up --force-recreate --build -d
+    docker-compose down --remove-orphans
     docker image prune -f
+    docker-compose up --force-recreate --build -d
 ```
 `OR`
 ```
@@ -57,10 +60,10 @@
 ```
     docker volume --help
     docker volume ls
-    docker volume rm project-mssql2022_sqlbackup rm
-    docker volume rm project-mssql2022_sqldata
-    docker volume rm project-mssql2022_sqllog
-    docker volume rm project-mssql2022_sqlsystem
+    docker volume rm docker-mssql2022_sqlbackup rm
+    docker volume rm docker-mssql2022_sqldata
+    docker volume rm docker-mssql2022_sqllog
+    docker volume rm docker-mssql2022_sqlsystem
 ```
 ### Docker shell into container
 ```
