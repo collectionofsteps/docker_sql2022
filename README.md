@@ -8,7 +8,7 @@
     c:
     cd\
     mkdir docker
-    mkdir docker\docker_sql2022
+    mkdir docker
     mkdir docker\volumes_local
     mkdir docker\volumes_local\sqlbackup
     cd docker
@@ -26,14 +26,17 @@
 ---
 ## Start / Stop Docker Windows Service via comand line using cmd
 ```
-    Note: Set windows service [Docker Destop Service] startup to Manual from Automatic
     net start com.docker.service
     net stop com.docker.service
-    # Note : Start Docker Desktop as Administrator
 ```
 ---
 ## Docker Commands via comand line using cmd
 ---
+### Docker Commands
+```
+    docker info
+    docker system prune -a       # Clean up space used by Docker
+```
 ### Start / Stop docker image from folder
 ```
     docker-compose up -d
@@ -41,9 +44,8 @@
 ```
 ### Update docker image from docker-compose.yml 
 ```
-    docker-compose down --remove-orphans
-    docker image prune -f
     docker-compose up --force-recreate --build -d
+    docker image prune -f
 ```
 `OR`
 ```
@@ -56,14 +58,19 @@
     docker container ls
     docker exec container_sql2022 printenv
 ```
+### Docker Images commands
+```
+    docker images
+	docker scan image_sql2022
+```
 ### Docker Volume commands
 ```
     docker volume --help
     docker volume ls
-    docker volume rm docker-mssql2022_sqlbackup rm
-    docker volume rm docker-mssql2022_sqldata
-    docker volume rm docker-mssql2022_sqllog
-    docker volume rm docker-mssql2022_sqlsystem
+    docker volume rm project-mssql2022_sqlbackup rm
+    docker volume rm project-mssql2022_sqldata
+    docker volume rm project-mssql2022_sqllog
+    docker volume rm project-mssql2022_sqlsystem
 ```
 ### Docker shell into container
 ```
@@ -72,7 +79,6 @@
 ```
 ---
 ## References:
-
 - __[GitHub](https://github.com/dbafromthecold/SqlServerDockerCompose)__ `SqlServerDockerCompose`
 - __[MS install SQL on Ubuntu](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-linux-ver16&preserve-view=true)__
 - __[install windows subsystem for linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install)__
